@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <h2>Thanh toán đơn hàng</h2>
+        <label>Họ tên:</label>
+        <input type="text" name="fullname" required><br><br>
+
+        <label>Địa chỉ giao hàng:</label><br>
+        <textarea name="address" rows="2" cols="40"></textarea><br><br>
+
+        <label>Hình thức thanh toán:</label><br>
+        <select name="payment">
+          <option value="cod">Thanh toán khi nhận hàng</option>
+          <option value="bank">Chuyển khoản ngân hàng</option>
+          <option value="momo">Ví MoMo</option>
+        </select><br><br>
+
+        <button type="submit">Thanh toán</button>
+    </form>
+
+</body>
+
+</html>
