@@ -8,21 +8,48 @@
 </head>
 <style>
     body {
-        margin: 50px;
-        padding: auto;
-        font-size: xx-large;
+        padding: 20px;
+        font-size: 20px;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+    
+    p {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    ul {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        gap: 20px;
+        list-style: none;
+        justify-content: center;
+        max-width: 1000px;
+    }
+    
+    li {
+        background-color: white;
+        border: 2px solid #ccc;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-weight: bold;
     }
     
     li:nth-child(even) {
-        background-color: red;
+        background-color: #ffdddd;
     }
     
     li:nth-child(odd) {
-        background-color: green;
+        background-color: #ddffdd;
     }
     
     li:hover {
         color: blue;
+        transform: scale(1.05);
     }
 </style>
 
@@ -33,6 +60,9 @@
         <li>Toán cao cấp 2</li>
         <li>Cấu trúc rời rạc</li>
         <li>Lịch sử Đảng cộng sản Việt Nam</li>
+        <li>Đạo đức nghề ngiệp</li>
+        <li>Cấu trúc dữ liệu và giải thuật</li>
+        <li>Công nghệ phần mềm</li>
     </ul>
 </body>
 
