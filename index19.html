@@ -1,16 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        li {
+            background-color: #ffffff;
+            margin: 10px 0;
+            padding: 15px 20px;
+            border-left: 8px solid #ccc;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        
+        li:hover {
+            transform: translateX(5px);
+        }
+        
+        .event-1 {
+            border-color: #007bff;
+        }
+        
+        .event-2 {
+            border-color: #28a745;
+        }
+        
+        .event-3 {
+            border-color: #ffc107;
+        }
+        
+        .highlight {
+            background-color: #e6f7ff;
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Sự kiện sắp tới</h1>
-  <ul>
-    <li><strong>20/06/2025</strong> - Hội chợ việc làm tại TP.HCM</li>
-    <li><strong>01/07/2025</strong> - Lễ hội trái cây miền Nam</li>
-    <li><strong>15/07/2025</strong> - Khai mạc giải bóng đá học sinh toàn quốc</li>
-  </ul>
+    <ul>
+        <li class="event-1 highlight"><strong>20/06/2025</strong> - Hội chợ việc làm tại TP.HCM</li>
+        <li class="event-2"><strong>01/07/2025</strong> - Lễ hội trái cây miền Nam</li>
+        <li class="event-3"><strong>15/07/2025</strong> - Khai mạc giải bóng đá học sinh toàn quốc</li>
+    </ul>
 </body>
+
 </html>
