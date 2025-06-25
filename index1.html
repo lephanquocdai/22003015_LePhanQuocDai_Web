@@ -7,25 +7,65 @@
     <title>Document</title>
 </head>
 <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
     body {
         font-size: larger;
-        text-align: center;
         color: black;
-        background-color: yellow;
-        font-family: Arial, Helvetica, sans-serif
+        background-color: rgb(0, 217, 255);
+        font-family: Arial, Helvetica, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    
+    .container {
+        background: white;
+        border-radius: 16px;
+        padding: 20px;
+        max-width: 800px;
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        flex-wrap: wrap;
+    }
+    
+    .info {
+        flex: 1;
+    }
+    
+    .info p {
+        margin-bottom: 10px;
+        text-align: left;
     }
     
     img {
         border-radius: 18px;
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
     }
 </style>
+</head>
 
 <body>
-    <p>Họ và tên: Lê Phan Quốc Đại</p>
-    <p>Ngày sinh 12/09/2004</p>
-    <img src="https://picsum.photos/200/300" alt="">
-    <p>Sở thích: nghe nhạc, đọc sách, chơi game...</p>
-    <p>Mô tả ngắn: Em là sinh viên Trường Đại Học Công Nghiệp Thành phố Hồ Chí Minh</p>
+    <div class="container">
+        <img src="https://picsum.photos/200/300" alt="Ảnh cá nhân" />
+        <div class="info">
+            <p><strong>Họ và tên:</strong> Lê Phan Quốc Đại</p>
+            <p><strong>Ngày sinh:</strong> 12/09/2004</p>
+            <p><strong>Sở thích:</strong> nghe nhạc, đọc sách, chơi game...</p>
+            <p><strong>Mô tả ngắn:</strong> Em là sinh viên Trường Đại Học Công Nghiệp Thành phố Hồ Chí Minh</p>
+        </div>
+    </div>
 </body>
 
 </html>
