@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="num1" type="text" placeholder="Nhap so 1"><br>
+    <input id="num2" type="text" placeholder="Nhap so 2"><br>
+    <button id="btnSum">Sum</button><br>
+    <span id="result"></span>
+
+    <script>
+        var num1 = document.getElementById('num1');
+        var num2 = document.getElementById('num2');
+        var btnSum = document.getElementById('btnSum');
+        var result = document.getElementById('result');
+
+        function calculateSum() {
+            var val1 = num1.value.trim();
+            var val2 = num2.value.trim();
+
+            if (val1 === "" || val2 === "") {
+                result.innerText = "Ban chua nhap so!";
+                return;
+            }
+
+            var a = parseFloat(val1);
+            var b = parseFloat(val2);
+            if (isNaN(a) || isNaN(b)) {
+                result.innerText = "Ban nhap khong phai la so!";
+                return;
+            }
+            var sum = a + b;
+            result.innerText = "Tong la:" + sum;
+        }
+        btnSum.onclick = calculateSum;
+    </script>
+</body>
+
+</html>
