@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="inputText" type="text" placeholder="inputText">
+    <button id="btnClick">Click</button><br>
+    <span id="display"></span>
+
+    <script>
+        var inputText = document.getElementById('inputText');
+        var btnClick = document.getElementById('btnClick');
+        var display = document.getElementById('display');
+
+
+        function calltoClick() {
+            var pattern = /\d/;
+
+            var value = inputText.value;
+
+            if (value == '') {
+                display.innerText = 'null';
+            } else if (pattern.test(value)) {
+                display.innerText = 'number';
+            } else display.innerText = 'text';
+        }
+        btnClick.onclick = calltoClick;
+    </script>
+</body>
+
+</html>
