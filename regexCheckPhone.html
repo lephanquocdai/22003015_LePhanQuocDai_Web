@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Check Số Điện Thoại</h2>
+    <input id="phoneInput" type="text" placeholder="Nhập số điện thoại"><br>
+    <button id="checkPhoneBtn">Kiểm tra</button><br>
+    <span id="phoneResult"></span>
+
+    <script>
+        var phoneInput = document.getElementById('phoneInput');
+        var checkPhoneBtn = document.getElementById('checkPhoneBtn');
+        var phoneResult = document.getElementById('phoneResult');
+
+        function checkPhone() {
+            var val = phoneInput.value.trim();
+            var phoneRegex = /^\d{10}$/;
+
+            if (val === "") {
+                phoneResult.innerText = "Please input";
+                phoneResult.style.color = "red";
+                return;
+            }
+
+            if (!phoneRegex.test(val)) {
+                phoneResult.innerText = "Invalid phone number";
+                phoneResult.style.color = "red";
+                return;
+            }
+
+            phoneResult.innerText = "Valid phone";
+            phoneResult.style.color = "green";
+        }
+
+        checkPhoneBtn.onclick = checkPhone;
+    </script>
+</body>
+</html>
