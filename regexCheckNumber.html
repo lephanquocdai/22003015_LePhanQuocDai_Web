@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Check Số</h2>
+    <input id="numberInput" type="text" placeholder="Nhập số"><br>
+    <button id="checkNumberBtn">Kiểm tra</button><br>
+    <span id="numberResult"></span>
+
+    <script>
+        var numberInput = document.getElementById('numberInput');
+        var checkNumberBtn = document.getElementById('checkNumberBtn');
+        var numberResult = document.getElementById('numberResult');
+
+        function checkNumber() {
+            var val = numberInput.value.trim();
+
+            if (val === "") {
+                numberResult.innerText = "Please input";
+                numberResult.style.color = "red";
+                return;
+            }
+
+            if (isNaN(val)) {
+                numberResult.innerText = "Not a number";
+                numberResult.style.color = "red";
+                return;
+            }
+
+            numberResult.innerText = "Valid number";
+            numberResult.style.color = "green";
+        }
+
+        checkNumberBtn.onclick = checkNumber;
+    </script>
+</body>
+</html>
