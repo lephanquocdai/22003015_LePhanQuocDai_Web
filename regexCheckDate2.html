@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Kiểm Tra Ngày (DD/MM/YYYY)</h2>
+    <input id="dateInput" type="date"><br>
+    <button id="checkBtn">Kiểm tra</button><br>
+    <span id="result"></span>
+
+    <script>
+        var dateInput = document.getElementById('dateInput');
+        var checkBtn = document.getElementById('checkBtn');
+        var result = document.getElementById('result');
+
+        function chechkDate(){
+            var val = dateInput.value.trim();
+            if (val === "") {
+                result.innerText = "Vui lòng chọn ngày";
+                result.style.color = "red";
+                return;
+            }
+
+            var myDate = new Date(val);
+            var today = new Date();
+            var status = "";
+            if(myDate < today){
+                status = " → Ngày này ở quá khứ";
+            } else if (myDate > today) {
+                status = " → Ngày này ở tương lai";
+            } else {
+                status = " → Hôm nay";
+            }
+            result.innerText = "Ngày đã chọn: " + myDate.getDate() + "/" + 
+                                (myDate.getMonth() + 1) + "/" + 
+                                myDate.getFullYear() + status;
+            result.style.color = "green";
+        }
+        checkBtn.onclick = chechkDate;
+    </script>
+</body>
+</html>

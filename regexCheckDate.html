@@ -6,43 +6,60 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Check Ngày Hợp Lệ (DD-MM-YYYY)</h2>
-    <input id="dateInput" type="text" placeholder="Nhập ngày"><br>
-    <button id="checkDateBtn">Kiểm tra</button><br>
-    <span id="dateResult"></span>
+    <h2>Kiểm Tra Ngày (DD/MM/YYYY)</h2>
+    <input id="dateInput" type="text" placeholder="Nhập ngày (DD/MM/YYYY)"><br>
+    <button id="checkBtn">Kiểm tra</button><br>
+    <span id="result"></span>
 
     <script>
         var dateInput = document.getElementById('dateInput');
-        var checkDateBtn = document.getElementById('checkDateBtn');
-        var dateResult = document.getElementById('dateResult');
+        var checkBtn = document.getElementById('checkBtn');
+        var result = document.getElementById('result');
 
         function checkDate() {
             var val = dateInput.value.trim();
-            var regex = /^(\d{2})-(\d{2})-(\d{4})$/;
-            var match = val.match(regex);
+            var parts = val.split('/');
 
-            if (!match) {
-                dateResult.innerText = "Sai định dạng DD-MM-YYYY";
-                dateResult.style.color = "red";
+            if (parts.length !== 3) {
+                result.innerText = "Sai định dạng. Đúng: DD/MM/YYYY";
+                result.style.color = "red";
                 return;
             }
 
-            var dd = parseInt(match[1]);
-            var mm = parseInt(match[2]);
-            var yyyy = parseInt(match[3]);
+            var day = parseInt(parts[0]);
+            var month = parseInt(parts[1]);
+            var year = parseInt(parts[2]);
 
-            var date = new Date(`${yyyy}-${mm}-${dd}`);
-            if (date.getFullYear() !== yyyy || date.getMonth() + 1 !== mm || date.getDate() !== dd) {
-                dateResult.innerText = "Ngày không hợp lệ";
-                dateResult.style.color = "red";
+            var myDate = new Date(year, month - 1, day); 
+
+
+            if (isNaN(myDate.getTime()) || 
+                myDate.getDate() !== day || 
+                myDate.getMonth() !== (month - 1) || 
+                myDate.getFullYear() !== year) {
+                result.innerText = "Ngày không hợp lệ";
+                result.style.color = "red";
                 return;
             }
 
-            dateResult.innerText = "Ngày hợp lệ";
-            dateResult.style.color = "green";
+            var today = new Date();
+            var status = "";
+
+            if (myDate < today) {
+                status = " → Ngày này ở quá khứ";
+            } else if (myDate > today) {
+                status = " → Ngày này ở tương lai";
+            } else {
+                status = " → Hôm nay";
+            }
+
+            result.innerText = "Ngày hợp lệ: " + myDate.getDate() + "/" + 
+                               (myDate.getMonth() + 1) + "/" + 
+                               myDate.getFullYear() + status;
+            result.style.color = "green";
         }
 
-        checkDateBtn.onclick = checkDate;
+        checkBtn.onclick = checkDate;
     </script>
 </body>
 </html>
