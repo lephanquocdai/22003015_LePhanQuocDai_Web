@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Ngày sinh phải nhỏ hơn hôm nay</h2>
+    <input id="birth" type="date"><br><br>
+    <button id="btnCheck">Kiểm tra</button><br><br>
+    <span id="result"></span>
+
+    <script>
+      var birth = document.getElementById('birth');
+      var btnCheck = document.getElementById('btnCheck');
+      var result = document.getElementById('result');
+
+      var today = new Date();
+      today.setDate(today.getDate() - 1);
+      var max = today.toISOString().split('T')[0];
+      birth.max = max;
+
+      function checkDob() {
+        var val = birth.value;
+        if (!val) {
+          result.innerText = "Vui lòng chọn ngày sinh!";
+          result.style.color = "red";
+          return;
+        }
+
+        result.innerText = "Ngày sinh hợp lệ: " + new Date(val).toLocaleDateString("vi-VN");
+        result.style.color = "green";
+      }
+      btnCheck.onclick = checkDob;
+    </script>
+</body>
+</html>
