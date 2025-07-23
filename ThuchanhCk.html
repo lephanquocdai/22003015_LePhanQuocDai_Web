@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>1. Kiểm tra text vừa nhập vào là số hay chuỗi, thông báo lên trang web</p>
+    <input id="inputCau1" type="text " placeholder="inputCau1">
+    <button id="btnClickCau1">Kiểm tra</button> <br>
+    <span id="resultCau1"></span>
+
+    <hr>
+
+    <p>2. Kiểm tra định dạng nhập vào (DD-MM-YYYY)</p>
+    <input id="inputCau2" type="text" placeholder="inputCau2">
+    <button id="btnClickCau2">Kiểm tra</button><br>
+    <span id="resultCau2"></span>
+
+    <hr>
+
+    <p>3. Kiểm tra định dạng nhập vào (DD/MM/YYYY)</p>
+    <input id="inputCau3" type="text" placeholder="inputCau3">
+    <button id="btnClickCau3">Kiểm tra</button><br>
+    <span id="resultCau3"></span>
+
+    <hr>
+
+    <p>7. Kiểm tra số điện thoại Việt Nam hợp lệ (bắt đầu bằng 0, 10 chữ số)</p>
+    <input id="inputCau7" type="text" placeholder="inputCau7">
+    <button id="btnClickCau7">Kiểm tra</button><br>
+    <span id="resultCau7"></span>
+
+    <hr>
+
+    <p>9. Kiểm tra mật khẩu mạnh (ít nhất 8 ký tự, có chữ hoa, thường và số)</p>
+    <input id="inputCau9" type="text" placeholder="inputCau9">
+    <button id="btnClickCau9">Kiểm tra</button><br>
+    <span id="resultCau9"></span>
+
+    <hr>
+
+    <p>10. Kiểm tra email hợp lệ </p>
+    <input id="inputCau10" type="text" placeholder="inputCau10">
+    <button id="btnClickCau10">Kiểm tra</button><br>
+    <span id="resultCau10"></span>
+
+    <hr>
+
+    <p>6. Kiểm tra Mã Bệnh Nhân BN-20230701-001 </p>
+    <input id="inputCau6" type="text" placeholder="inputCau6">
+    <button id="btnClickCau6">Kiểm tra</button><br>
+    <span id="resultCau6"></span>
+    <hr>
+    <p>8. Kiểm tra căn cước công dân (là 9 hoặc 12 số)</p>
+    <input id="inputCau8" type="text" placeholder="inputCau8">
+    <button id="btnClickCau8">Kiểm tra</button><br>
+    <span id="resultCau8"></span>
+
+    <hr>
+    <p>5. Kiểm tra nhập vào họ và tên (ít nhất 2 từ)</p>
+    <input id="inputCau5" type="text" placeholder="inputCau5">
+    <button id="btnClickCau5">Kiểm tra</button><br>
+    <span id="resultCau5"></span>
+    <hr>
+    <p>4. Kết hợp 2 định dạng trên vào một để người dùng có thể nhập ((DD-MM-YYYY) hoặc (DD/MM/YYYY))</p>
+    <input id="inputCau4" type="text" placeholder="inputCau4">
+    <button id="btnClickCau4">Kiểm tra</button><br>
+    <span id="resultCau4"></span>
+
+    <script>
+        var inputCau1 = document.getElementById('inputCau1');
+        var btnClickCau1 = document.getElementById('btnClickCau1');
+        var resultCau1 = document.getElementById('resultCau1');
+        btnClickCau1.onclick = function() {
+            var value = inputCau1.value;
+            var pattern = /\d/;
+            if (value == "") {
+                resultCau1.innerText = 'Vui lòng nhập';
+                resultCau1.style.color = 'red';
+            } else if (pattern.test(value)) {
+                resultCau1.innerText = 'Number';
+                resultCau1.style.color = 'green';
+            } else {
+                resultCau1.innerText = 'Text';
+                resultCau1.style.color = 'green';
+            }
+        };
+
+        var inputCau2 = document.getElementById('inputCau2');
+        var btnClickCau2 = document.getElementById('btnClickCau2');
+        var resultCau2 = document.getElementById('resultCau2');
+        btnClickCau2.onclick = function() {
+            var value = inputCau2.value;
+            var parts = value.split('-');
+            if (parts.length !== 3) {
+                resultCau2.innerText = 'Sai định dạng';
+                resultCau2.style.color = 'red';
+            } else {
+                resultCau2.innerText = 'Đúng định dạng';
+                resultCau2.style.color = 'green';
+            }
+        };
+
+        var inputCau3 = document.getElementById('inputCau3');
+        var btnClickCau3 = document.getElementById('btnClickCau3');
+        var resultCau3 = document.getElementById('resultCau3');
+        btnClickCau3.onclick = function() {
+            var value = inputCau3.value;
+            var parts = value.split('/');
+            if (parts.length !== 3) {
+                resultCau3.innerText = 'Sai định dạng';
+                resultCau3.style.color = 'red';
+            } else {
+                resultCau3.innerText = 'Đúng định dạng';
+                resultCau3.style.color = 'green';
+            }
+        };
+
+        var inputCau7 = document.getElementById('inputCau7');
+        var btnClickCau7 = document.getElementById('btnClickCau7');
+        var resultCau7 = document.getElementById('resultCau7');
+        btnClickCau7.onclick = function() {
+            var value = inputCau7.value;
+            var patternPhone = /^0+\d{9}/;
+            if (!patternPhone.test(value)) {
+                resultCau7.innerText = 'Sai định dạng';
+                resultCau7.style.color = 'red';
+            } else {
+                resultCau7.innerText = 'Đúng định dạng';
+                resultCau7.style.color = 'green';
+            }
+        };
+
+        var inputCau9 = document.getElementById('inputCau9');
+        var btnClickCau9 = document.getElementById('btnClickCau9');
+        var resultCau9 = document.getElementById('resultCau9');
+        btnClickCau9.onclick = function() {
+            var value = inputCau9.value;
+            var patternPw = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+            if (!patternPw.test(value)) {
+                resultCau9.innerText = 'Sai định dạng';
+                resultCau9.style.color = 'red';
+            } else {
+                resultCau9.innerText = 'Mật khẩu mạnh';
+                resultCau9.style.color = 'green';
+            }
+        };
+
+        var inputCau10 = document.getElementById('inputCau10');
+        var btnClickCau10 = document.getElementById('btnClickCau10');
+        var resultCau10 = document.getElementById('resultCau10');
+        btnClickCau10.onclick = function() {
+            var value = inputCau10.value;
+            var patternEmail = /^[\w.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
+            if (!patternEmail.test(value)) {
+                resultCau10.innerText = 'Sai định dạng';
+                resultCau10.style.color = 'red';
+            } else {
+                resultCau10.innerText = 'Email hợp lệ';
+                resultCau10.style.color = 'green';
+            }
+        };
+
+        var inputCau6 = document.getElementById('inputCau6');
+        var btnClickCau6 = document.getElementById('btnClickCau6');
+        var resultCau6 = document.getElementById('resultCau6');
+        btnClickCau6.onclick = function() {
+            var value = inputCau6.value;
+            var patternMaBenhNhan = /^BN-\d{8}\-\d{3}/;
+            if (!patternMaBenhNhan.test(value)) {
+                resultCau6.innerText = 'Sai định dạng';
+                resultCau6.style.color = 'red';
+            } else {
+                resultCau6.innerText = 'Mã bệnh nhân hợp lệ';
+                resultCau6.style.color = 'green';
+            }
+        };
+
+        var inputCau8 = document.getElementById('inputCau8');
+        var btnClickCau8 = document.getElementById('btnClickCau8');
+        var resultCau8 = document.getElementById('resultCau8');
+        btnClickCau8.onclick = function() {
+            var value = inputCau8.value;
+            var patternMaBenhNhan = /^\d{9}$|^\d{12}$/;
+            if (!patternMaBenhNhan.test(value)) {
+                resultCau8.innerText = 'Sai định dạng';
+                resultCau8.style.color = 'red';
+            } else {
+                resultCau8.innerText = 'CCCD 9 số hợp lệ';
+                resultCau8.style.color = 'green';
+            }
+        };
+
+        var inputCau5 = document.getElementById('inputCau5');
+        var btnClickCau5 = document.getElementById('btnClickCau5');
+        var resultCau5 = document.getElementById('resultCau5');
+        btnClickCau5.onclick = function() {
+            var value = inputCau5.value;
+            var words = value.split(" ").filter(word => word !== "");
+            if (words.length >= 2) {
+                resultCau5.innerText = 'Họ và tên có ít nhất 2 từ';
+                resultCau5.style.color = 'green';
+            } else {
+                resultCau5.innerText = 'Sai định dạng';
+                resultCau5.style.color = 'red';
+            }
+        };
+
+        var inputCau4 = document.getElementById('inputCau4');
+        var btnClickCau4 = document.getElementById('btnClickCau4');
+        var resultCau4 = document.getElementById('resultCau4');
+        btnClickCau4.onclick = function() {
+            var value = inputCau4.value;
+            var patternDinhDang = value.includes('/') ? ('/') : (value.includes('-') ? ('-') : null);
+            if (!patternDinhDang) {
+                resultCau4.innerText = 'Sai định dạng';
+                resultCau4.style.color = 'red';
+            } else {
+                resultCau4.innerText = 'Định dang ((DD-MM-YYYY) hoặc (DD/MM/YYYY)) hợp lệ';
+                resultCau4.style.color = 'green';
+            }
+        };
+    </script>
+</body>
+
+</html>
