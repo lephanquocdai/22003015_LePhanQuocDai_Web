@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Chọn ngày sinh (phải từ 18 tuổi trở lên)</h2>
+    <input id="age" type="date"><br><br>
+    <button id="btnCheck">Kiểm tra tuổi</button><br><br>
+    <span id="result"></span>
+
+    <script>
+        var age = document.getElementById('age');
+        var btnCheck = document.getElementById('btnCheck');
+        var result = document.getElementById('result');
+
+        var today = new Date();
+        var year = today.getFullYear() - 18;
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var day = String(today.getDate()).padStart(2, '0');
+        var maxDate = year + '-' + month + '-' + day;
+        age.max = maxDate;
+        age.setAttribute('max', maxDate);
+
+        function checkAge() {
+        var val = age.value;
+        if (!val) {
+            result.innerText = "Vui lòng chọn ngày sinh!";
+            result.style.color = "red";
+            return;
+        }
+
+        var birthDate = new Date(val);
+        var myAge = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            myAge--;
+        }
+
+        result.innerText = "Tuổi của bạn: " + myAge;
+        result.style.color = myAge >= 18 ? "green" : "red";
+        }
+        btnCheck.onclick = checkAge;
+    </script>
+</body>
+</html>
